@@ -2,62 +2,204 @@
 <html lang="th">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>กำลังพาไปยัง Shopee...</title>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shopee Clone | ค้นหาสินค้า Affiliate</title>
+  <meta name="description" content="ระบบแนะนำสินค้า Shopee Clone สำหรับ Affiliate พร้อมติด Pixel และลิงก์รายได้อัตโนมัติ" />
+  <!-- Facebook Pixel -->
   <script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,
-    'script','https://connect.facebook.net/en_US/fbevents.js');
-
-    fbq('init', '127978927946856'); // <-- แก้ไข FB Pixel ID ของคุณตรงนี้
-    fbq('track', 'Purchase');
+    !function(f,b,e,v,n,t,s){
+      if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '127978927946856'); // ใส่ Pixel ID ของคุณที่นี่
+    fbq('track', 'PageView');
   </script>
-
+  <!-- TikTok Pixel -->
   <script>
-    setTimeout(() => {
-      // อัปเดตลิงก์ตรงนี้
-      window.location.href = "https://atth.me/go/0eGt9VIF";
-    }, 800); // หน่วงเวลาเพื่อให้ Pixel ทำงาน
+    !function (w, d, t) {
+        w.TiktokAnalyticsObject = t;
+        var ttq = w[t] = w[t] || [];
+        ttq.methods = ["page", "track", "identify", "instances", "debug", "on", "off", "once", "ready", "alias", "group", "enableCookie", "disableCookie"],
+        ttq.setAndDefer = function (t, e) {
+            t[e] = function () {
+                t.push([e].concat(Array.prototype.slice.call(arguments, 0)))
+            }
+        };
+        for (var i = 0; i < ttq.methods.length; i++) ttq.setAndDefer(ttq, ttq.methods[i]);
+        ttq.instance = function (t) {
+            for (var e = ttq._i[t] || [], n = 0; n < ttq.methods.length; n++
+            )ttq.setAndDefer(e, ttq.methods[n]);
+            return e
+        },
+        ttq.load = function (e, n) {
+            var i = "https://analytics.tiktok.com/i18n/pixel/events.js";
+            ttq._i = ttq._i || {}, ttq._i[e] = [], ttq._i[e]._u = i, ttq._t = ttq._t || {}, ttq._t[e] = +new Date, ttq._o = ttq._o || {}, ttq._o[e] = n || {};
+            var o = document.createElement("script");
+            o.type = "text/javascript", o.async = !0, o.src = i + "?sdkid=" + e + "&lib=" + t;
+            var a = document.getElementsByTagName("script")[0];
+            a.parentNode.insertBefore(o, a)
+        };
+        ttq.load('CGK99RR6C8H6TQFUKL80'); // ใส่ TikTok Pixel ของคุณ
+        ttq.page();
+    }(window, document, 'ttq');
   </script>
-
   <style>
-    body {
-      margin: 0;
-      font-family: sans-serif;
+    body { font-family: sans-serif; margin: 0; background: #fff4f4; }
+    header { background: #ee4d2d; padding: 15px; color: white; text-align: center; font-size: 20px; }
+    .search-box { padding: 15px; background: white; position: sticky; top: 0; z-index: 2; }
+    input[type="text"] {
+      width: 100%; padding: 12px; font-size: 16px; border: 1px solid #ccc; border-radius: 5px;
+    }
+    .history { padding: 10px 15px; background: #fff9f3; font-size: 13px; color: #444; }
+    .history span { background: #ee4d2d10; margin: 0 4px 4px 0; padding: 2px 7px; border-radius: 5px; cursor: pointer; display: inline-block;}
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 12px;
+      padding: 15px;
+    }
+    .product-card {
+      background: white;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.09);
       display: flex;
       flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      background: #fff;
-      color: #333;
     }
-    .loader {
-      border: 5px solid #f3f3f3; /* สีเทาอ่อน */
-      border-top: 5px solid #f97300; /* สีส้ม Shopee */
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      animation: spin 1s linear infinite;
-      margin-bottom: 20px;
+    .product-card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      background: #faf8f7;
     }
-    h1 {
-      font-size: 20px;
+    .product-card .info {
+      padding: 10px;
+      flex: 1;
     }
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
+    .product-card .info .name {
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
+    .product-card .info .price {
+      color: #ee4d2d;
+      font-weight: bold;
+      font-size: 16px;
+    }
+    .product-card .buy-btn {
+      text-align: center;
+      padding: 10px;
+      background: #ee4d2d;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    @media (max-width: 600px){
+      .product-card img { height: 120px; }
+      .product-grid { gap: 8px; padding: 8px;}
     }
   </style>
 </head>
 <body>
-  <div class="loader"></div>
-  <h1>กำลังพาคุณไปยังหน้าสินค้า Shopee...</h1>
+  <header>
+    🔍 Shopee Clone | ระบบค้นหาแนะนำสินค้า + Affiliate!
+  </header>
+
+  <div class="search-box">
+    <input type="text" id="searchInput" placeholder="ค้นหาสินค้า เช่น ลิปสติก..." onkeydown="if(event.key === 'Enter') searchShopee()" autofocus />
+  </div>
+
+  <div class="history" id="history"></div>
+
+  <div class="product-grid" id="productGrid"></div>
+  
+  <script>
+    // ใส่ Affiliate ID ของคุณตรงนี้!
+    const AFFILIATE_TAG = '?af_click_id=15384150058';
+
+    function loadHistory() {
+      const h = JSON.parse(localStorage.getItem("shp_hist") || "[]");
+      if (h.length) {
+        historyDiv.innerHTML = "ค้นหาล่าสุด: " + h.map(x=>`<span onclick="setQuery('${x}')">${x}</span>`).join('');
+      }
+    }
+    function saveHistory(q) {
+      let h = JSON.parse(localStorage.getItem("shp_hist") || "[]");
+      h = h.filter(x=>x!==q);
+      h.unshift(q); // ดันขึ้นหน้าแรก
+      if (h.length>7) h = h.slice(0,7);
+      localStorage.setItem("shp_hist", JSON.stringify(h));
+      loadHistory();
+    }
+    function setQuery(q) {
+      document.getElementById("searchInput").value = q;
+      searchShopee();
+    }
+
+    async function searchShopee() {
+      const query = document.getElementById("searchInput").value.trim();
+      if (!query) return;
+
+      saveHistory(query);
+
+      const productGrid = document.getElementById("productGrid");
+      productGrid.innerHTML = "⏳ กำลังค้นหา...";
+      const apiUrl = `https://corsproxy.io/?https://shopee.co.th/api/v4/search/search_items?by=relevancy&keyword=${encodeURIComponent(query)}&limit=16&newest=0&order=desc&page_type=search`;
+      try {
+        const response = await fetch(apiUrl);
+        const data = await response.json();
+        const items = data.items || [];
+
+        let html = "";
+        items.forEach(item => {
+          const p = item.item_basic;
+          const name = p.name;
+          const price = (p.price / 100000).toLocaleString();
+          const img = `https://cf.shopee.co.th/file/${p.image}_tn`;
+          const url = `https://shopee.co.th/product/${p.shopid}/${p.itemid}${AFFILIATE_TAG}`;
+
+          html += `
+            <div class="product-card">
+              <img src="${img}" />
+              <div class="info">
+                <div class="name">${name}</div>
+                <div class="price">฿${price}</div>
+              </div>
+              <a class="buy-btn" href="${url}" target="_blank" onclick="trackBuy('${name}')">🛒 ซื้อเลย</a>
+            </div>
+          `;
+        });
+        if (!items.length) html = "❌ ไม่พบสินค้า";
+        productGrid.innerHTML = html;
+
+        loadRelated(query);
+
+      } catch (e) {
+        productGrid.innerHTML = "⚠️ เกิดข้อผิดพลาด";
+      }
+    }
+    function loadRelated(query) {
+      const keywords = [
+        "ลิปสติก", "รองพื้น", "คอนซีลเลอร์", "แป้งพัฟ", "โทรศัพท์", "เคสมือถือ", "แหวน", "ต่างหู", "นาฬิกา", "โน๊ตบุ๊ค", "ทีวี"
+      ];
+      const related = keywords.filter(k => k !== query && k.includes(query.slice(0,2)));
+      if (related.length) {
+        let relDiv = document.createElement('div');
+        relDiv.className = "history";
+        relDiv.innerHTML = 'คุณอาจสนใจ: ' + related.slice(0,4).map(k=>`<span onclick="setQuery('${k}')">${k}</span>`).join('');
+        document.getElementById("productGrid").appendChild(relDiv);
+      }
+    }
+    function trackBuy(name){
+      try {
+        fbq('track', 'Purchase', {content_name: name, value: 0, currency: 'THB'});
+        ttq.track('CompletePayment', {contents: [{content_name: name}], value: 0, currency: 'THB'});
+      } catch(e){}
+    }
+
+    const historyDiv = document.getElementById("history");
+    loadHistory();
+  </script>
 </body>
 </html>
