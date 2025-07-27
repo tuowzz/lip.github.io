@@ -459,24 +459,22 @@
 <style>
 .review-imgs {
   display: flex;
-  gap: 10px;
+  gap: 12px;
   flex-wrap: wrap;
-  margin-top: 9px;
+  margin-top: 12px;
 }
 .review-imgs img {
-  width: 120px;
-  border-radius: 12px;
+  width: 180px;
+  max-width: 90vw;
+  border-radius: 14px;
   object-fit: cover;
-  box-shadow: 0 2px 12px #0001;
-  transition: transform .13s;
-}
-.review-imgs img:active {
-  transform: scale(1.08);
+  box-shadow: 0 2px 10px #0001;
 }
 @media (max-width:600px) {
   .review-imgs img {
-    width: 45vw;
-    max-width: 99vw;
+    width: 90vw;
+    max-width: 98vw;
+    margin-bottom: 8px;
   }
 }
 </style>
