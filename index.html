@@ -802,7 +802,7 @@
     renderStock();
     updateLiveActivity();
 
-    // Toast ลูกค้ากำลังสั่งซื้อ
+       // Toast ลูกค้ากำลังสั่งซื้อ
     const purchaseToastEl = document.getElementById('purchaseToast');
     const purchaseToastTextEl = document.getElementById('purchaseToastText');
 
@@ -835,27 +835,42 @@
       }, 3500);
     }
 
-    function randomPurchaseToast() {
+    // initial = true ใช้ตอนเด้งครั้งแรก เน้น "กำลังสั่งอยู่ตอนนี้"
+    function randomPurchaseToast(initial = false) {
       const name = fakeNames[Math.floor(Math.random() * fakeNames.length)];
       const area = fakeAreas[Math.floor(Math.random() * fakeAreas.length)];
       const minsAgo = randomInt(1, 6);
       const shadeText = getRandomEnabledShadeText();
 
-      const msgPatterns = [
-        () => `${name} จาก${area} เพิ่งสั่งซื้อสี ${shadeText}`,
-        () => `${name} จาก${area} พึ่งกดสั่งสี ${shadeText} เมื่อ ${minsAgo} นาทีที่แล้ว`,
-        () => `${name} สนใจสี ${shadeText} และกดสั่งเรียบร้อยแล้ว 🎉`
-      ];
-      const msg = msgPatterns[randomInt(0, msgPatterns.length - 1)]();
+      let msg;
+      if (initial) {
+        msg = `${name} จาก${area} กำลังสั่งซื้อสี ${shadeText} อยู่ตอนนี้`;
+      } else {
+        const msgPatterns = [
+          () => `${name} จาก${area} เพิ่งสั่งซื้อสี ${shadeText}`,
+          () => `${name} จาก${area} พึ่งกดสั่งสี ${shadeText} เมื่อ ${minsAgo} นาทีที่แล้ว`,
+          () => `${name} สนใจสี ${shadeText} และกดสั่งเรียบร้อยแล้ว 🎉`
+        ];
+        msg = msgPatterns[randomInt(0, msgPatterns.length - 1)]();
+      }
       showPurchaseToast(msg);
     }
 
-    // ยิง toast random ทุก ~45–65 วินาที
+    // 🔹 ให้เด้งครั้งแรกเร็ว ๆ หลังเข้าเว็บ (3–6 วินาที)
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        if (document.visibilityState === 'visible') {
+          randomPurchaseToast(true);
+        }
+      }, randomInt(3000, 6000));
+    });
+
+    // 🔹 จากนั้นเด้งซ้ำทุก ~18–30 วินาที
     setInterval(() => {
-      if (document.visibilityState === 'visible' && Math.random() < 0.9) {
-        randomPurchaseToast();
+      if (document.visibilityState === 'visible') {
+        randomPurchaseToast(false);
       }
-    }, randomInt(45000, 65000));
+    }, randomInt(18000, 30000));
 
     // Form submit
     function sendOrderToSheet(event) {
