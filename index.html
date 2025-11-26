@@ -147,6 +147,13 @@
       padding: 11px 11px 10px 11px;
       animation: shake .8s infinite alternate;
     }
+    .scarcity-box small {
+      display:block;
+      font-size:0.86rem;
+      color:#e45a72;
+      margin-top:3px;
+      font-weight:500;
+    }
     @keyframes shake {
       0% { transform: translateY(0);}
       80% { transform: translateY(-1px);}
@@ -277,7 +284,7 @@
       color: #222;
       padding: 7px 14px;
       cursor: pointer;
-      transition: border 0.14s, background 0.13s, color 0.13s;
+      transition: border 0.14s, background 0.13s, color 0.13s, opacity 0.13s;
       outline: none;
     }
     .option-btn.selected {
@@ -285,6 +292,25 @@
       background: #ffdde7;
       color: var(--lip-pink);
       box-shadow: 0 1px 7px #ffd2bb44;
+    }
+    .option-btn.sold-out {
+      border-color:#ddd;
+      background:#f5f5f5;
+      color:#999;
+      cursor:not-allowed;
+      position:relative;
+      opacity:0.8;
+    }
+    .option-btn.sold-out::after {
+      content:"หมด";
+      position:absolute;
+      top:-8px;
+      right:-6px;
+      background:#e11d48;
+      color:#fff;
+      font-size:0.7rem;
+      padding:2px 6px;
+      border-radius:999px;
     }
     @media (max-width: 600px) {
       .content-padding { padding: 13px 8px; border-radius: 0;}
@@ -333,6 +359,7 @@
         รีวิวการใช้งานจริง
       </div>
     </div>
+
     <!-- Section เฉดสีลิป -->
     <div class="content-padding" style="margin-top:10px;">
       <h2 style="font-size:1.09rem;font-weight:600;margin-bottom:11px;">
@@ -351,6 +378,30 @@
         <span style="background:#e94057;color:#fff;padding:7px 18px;border-radius:8px;font-size:1.08rem;box-shadow:0 1px 6px #e9405744;">🌟 ทาแล้วปากดูสุขภาพดี!</span>
       </div>
 
+      <!-- 992 CORAL CRUSH -->
+      <div style="text-align:center;margin-bottom:17px;">
+        <img src="ลิป992.jpg" alt="992 CORAL CRUSH" style="width:230px;max-width:95%;border-radius:13px;box-shadow:0 2px 10px #0002;">
+        <div style="font-size:1.14rem;font-weight:700;color:#e94057;margin-top:10px;">992 CORAL CRUSH</div>
+        <div style="color:#888;font-size:1.02rem;margin-top:6px;">
+          ส้มคอรัลโทนสดใส แต่ยังสุภาพ<br><b>ช่วยขับผิวให้สว่าง เหมาะทั้งไปทำงานและเที่ยว</b>
+        </div>
+      </div>
+      <div style="text-align:center;margin:16px 0;">
+        <span style="background:#ffbfa0;color:#8a3a21;padding:7px 18px;border-radius:8px;font-size:1.08rem;box-shadow:0 1px 6px #ffbfa044;">🧡 ทาแล้วหน้าดูซอฟต์ ละมุนขึ้น</span>
+      </div>
+
+      <!-- 993 BERRY BRICK -->
+      <div style="text-align:center;margin-bottom:17px;">
+        <img src="ลิป993.jpg" alt="993 BERRY BRICK" style="width:230px;max-width:95%;border-radius:13px;box-shadow:0 2px 10px #0002;">
+        <div style="font-size:1.14rem;font-weight:700;color:#e94057;margin-top:10px;">993 BERRY BRICK</div>
+        <div style="color:#888;font-size:1.02rem;margin-top:6px;">
+          ชมพูเบอร์รี่โทนอิฐนิด ๆ ดูหวานแต่มีมิติ<br><b>เหมาะกับลุคออกเดท หรือวันพิเศษ</b>
+        </div>
+      </div>
+      <div style="text-align:center;margin:16px 0;">
+        <span style="background:#ff8fa1;color:#7b1630;padding:7px 18px;border-radius:8px;font-size:1.08rem;box-shadow:0 1px 6px #ff8fa144;">💗 ดูเป็นสาวสายหวาน ที่ยังมีความเก๋</span>
+      </div>
+
       <!-- 994 สีชมพูกุหลาบ -->
       <div style="text-align:center;margin-bottom:17px;">
         <img src="ลิป994.jpg" alt="994 สีชมพูกุหลาบ" style="width:230px;max-width:95%;border-radius:13px;box-shadow:0 2px 10px #0002;">
@@ -361,6 +412,18 @@
       </div>
       <div style="text-align:center;margin:16px 0;">
         <span style="background:#fd91b1;color:#9c3366;padding:7px 18px;border-radius:8px;font-size:1.08rem;box-shadow:0 1px 6px #fd91b144;">💗 ลุคคุณหนู ดูละมุน!</span>
+      </div>
+
+      <!-- 995 HAZEL -->
+      <div style="text-align:center;margin-bottom:17px;">
+        <img src="ลิป995.jpg" alt="995 HAZEL" style="width:230px;max-width:95%;border-radius:13px;box-shadow:0 2px 10px #0002;">
+        <div style="font-size:1.14rem;font-weight:700;color:#e94057;margin-top:10px;">995 HAZEL</div>
+        <div style="color:#888;font-size:1.02rem;margin-top:6px;">
+          โทนน้ำตาลอมส้มแบบ HAZEL สายเกา สายมูชอบมาก<br><b>ทาแล้วหน้าหวานขึ้นแต่ยังดูแพง</b>
+        </div>
+      </div>
+      <div style="text-align:center;margin:16px 0;">
+        <span style="background:#d58a6a;color:#4a2615;padding:7px 18px;border-radius:8px;font-size:1.08rem;box-shadow:0 1px 6px #d58a6a44;">🤎 โทนปากสายฝอ สายเกาในแท่งเดียว</span>
       </div>
 
       <!-- 996 สีน้ำตาลชมพู -->
@@ -377,9 +440,11 @@
     </div>
     <!-- /Section เฉดสีลิป -->
 
-    <div class="scarcity-box">
-      🎉 <b>โปรพิเศษ! เหลือ 9 แท่ง</b> | ส่งฟรีวันนี้เท่านั้น
+    <div class="scarcity-box" id="scarcityBox">
+      🎉 <b>โปรพิเศษ! เหลือ <span id="stockLeft">12</span> แท่ง</b> | ส่งฟรีวันนี้เท่านั้น
+      <small id="liveActivity">ตอนนี้มี 18 คนกำลังดูสินค้านี้อยู่</small>
     </div>
+
     <div style="margin-top:14px;">
       <b>เลือกเฉดสี:</b>
       <div class="options-container" id="optionsContainer"></div>
@@ -537,52 +602,73 @@
 
   <script>
     const GOOGLE_SHEET_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbzBFS1zxkrbiOpcP-1wYxALRfU3wJprPRT9KJju2wWEY2Rdd7OnJbFDTCErH-amUZrO/exec';
+
+    // ========================
+    // CONFIG เฉดสี + สต็อก
+    // enabled: false = ปิดขาย (ของหมด)
+    // ========================
     const products = [
-      { id: '991', text: '991 - สีชมพู-อมน้ำตาล' },
-      { id: '994', text: '994 - สีชมพูกุหลาบ' },
-      { id: '996', text: '996 - สีน้ำตาลชมพู' }
+      { id: '991', text: '991 - สีชมพู-อมน้ำตาล', enabled: true },
+      { id: '992', text: '992 - CORAL CRUSH',       enabled: true },
+      { id: '993', text: '993 - BERRY BRICK',       enabled: true },
+      { id: '994', text: '994 - สีชมพูกุหลาบ',     enabled: true },
+      { id: '995', text: '995 - HAZEL',             enabled: true },
+      { id: '996', text: '996 - สีน้ำตาลชมพู',     enabled: true }
     ];
+
+    // === ฟังก์ชันช่วย ===
+    function createOptionButton(product, containerId, mirrorContainerId) {
+      const container = document.getElementById(containerId);
+      if (!container) return;
+
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'option-btn';
+      btn.textContent = product.text;
+      btn.dataset.value = product.text + ' - 259 บาท';
+
+      if (!product.enabled) {
+        btn.classList.add('sold-out');
+        btn.disabled = true;
+      }
+
+      btn.onclick = () => {
+        if (btn.disabled) return;
+
+        // clear selected ใน container ปัจจุบัน
+        document.querySelectorAll('#' + containerId + ' .option-btn').forEach(b => b.classList.remove('selected'));
+        btn.classList.add('selected');
+
+        // sync ไป container อีกฝั่ง (หน้า/โมดัล)
+        if (mirrorContainerId) {
+          document.querySelectorAll('#' + mirrorContainerId + ' .option-btn').forEach(b => b.classList.remove('selected'));
+          const mirrorBtn = document.querySelector('#' + mirrorContainerId + ' .option-btn[data-value="' + btn.dataset.value + '"]');
+          if (mirrorBtn && !mirrorBtn.disabled) {
+            mirrorBtn.classList.add('selected');
+          }
+        }
+
+        document.getElementById('productInput').value = btn.dataset.value;
+      };
+
+      container.appendChild(btn);
+    }
+
     // === เฉดสีหน้า card
     const optionsContainer = document.getElementById('optionsContainer');
-    products.forEach(product => {
-      const btn = document.createElement('button');
-      btn.type = 'button';
-      btn.className = 'option-btn';
-      btn.textContent = product.text;
-      btn.dataset.value = `${product.text} - 259 บาท`;
-      btn.onclick = () => {
-        document.querySelectorAll('#optionsContainer .option-btn').forEach(b => b.classList.remove('selected'));
-        btn.classList.add('selected');
-        // sync ไป modal
-        document.querySelectorAll('#modalOptionsContainer .option-btn').forEach(b => b.classList.remove('selected'));
-        document.querySelector(`#modalOptionsContainer .option-btn[data-value="${btn.dataset.value}"]`).classList.add('selected');
-        document.getElementById('productInput').value = btn.dataset.value;
-      };
-      optionsContainer.appendChild(btn);
-    });
     // === เฉดสีใน modal
     const modalOptionsContainer = document.getElementById('modalOptionsContainer');
+
     products.forEach(product => {
-      const btn = document.createElement('button');
-      btn.type = 'button';
-      btn.className = 'option-btn';
-      btn.textContent = product.text;
-      btn.dataset.value = `${product.text} - 259 บาท`;
-      btn.onclick = () => {
-        document.querySelectorAll('#modalOptionsContainer .option-btn').forEach(b => b.classList.remove('selected'));
-        btn.classList.add('selected');
-        // sync ไป product
-        document.querySelectorAll('#optionsContainer .option-btn').forEach(b => b.classList.remove('selected'));
-        document.querySelector(`#optionsContainer .option-btn[data-value="${btn.dataset.value}"]`).classList.add('selected');
-        document.getElementById('productInput').value = btn.dataset.value;
-      };
-      modalOptionsContainer.appendChild(btn);
+      createOptionButton(product, 'optionsContainer', 'modalOptionsContainer');
+      createOptionButton(product, 'modalOptionsContainer', 'optionsContainer');
     });
 
     // Modal control
     const buyNowModal = document.getElementById('buyNowModal');
     const closeModalBtn = document.getElementById('closeModalBtn');
     const buyNowBtn = document.getElementById('buyNowBtn');
+
     function openModal() {
       buyNowModal.style.display = 'flex';
       if (window.fbq) fbq('track', 'InitiateCheckout');
@@ -607,6 +693,62 @@
     document.querySelectorAll('#addLineBtn, #addLineBtnFooter').forEach(el => {
       if(el) el.addEventListener('click', lineTrackingHandler);
     });
+
+    // ======================
+    // ระบบกระตุ้นคำสั่งซื้อ / สต็อกแบบเรียลไทม์ (จำลอง)
+    // ======================
+    let fakeStockLeft = 12; // ตั้งต้นสต็อกโชว์
+    const stockLeftEl = document.getElementById('stockLeft');
+    const liveActivityEl = document.getElementById('liveActivity');
+
+    function randomInt(min, max) {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    function renderStock() {
+      if (stockLeftEl) stockLeftEl.textContent = fakeStockLeft;
+    }
+
+    function updateLiveActivity() {
+      if (!liveActivityEl) return;
+      const patterns = [
+        () => `ตอนนี้มี ${randomInt(12, 32)} คนกำลังดูสินค้านี้อยู่`,
+        () => `มีลูกค้าเพิ่งสั่งซื้อเมื่อ ${randomInt(2, 7)} นาทีที่แล้ว`,
+        () => `สีขายดี 99${randomInt(1,6)} กำลังถูกกดสั่งบ่อยสุดตอนนี้`,
+        () => `โปรวันนี้ ส่งฟรี + เก็บเงินปลายทาง เท่านั้น`
+      ];
+      const msgFn = patterns[randomInt(0, patterns.length - 1)];
+      liveActivityEl.textContent = msgFn();
+    }
+
+    function randomDecreaseStock() {
+      if (fakeStockLeft > 4) {
+        fakeStockLeft -= 1;
+        renderStock();
+      }
+      updateLiveActivity();
+    }
+
+    // เรียกทุก 25-40 วิ แบบสุ่ม
+    setInterval(() => {
+      if (document.visibilityState === 'visible') {
+        randomDecreaseStock();
+      }
+    }, randomInt(25000, 40000));
+
+    function decreaseStockOnOrder() {
+      if (fakeStockLeft > 3) {
+        fakeStockLeft -= 1;
+        renderStock();
+      }
+      if (liveActivityEl) {
+        liveActivityEl.textContent = 'มีออเดอร์ของคุณเข้าระบบเรียบร้อยแล้ว 🎉';
+      }
+    }
+
+    // ตั้งค่าเริ่มต้น
+    renderStock();
+    updateLiveActivity();
 
     // Form submit
     function sendOrderToSheet(event) {
@@ -642,6 +784,9 @@
           const successPopup = document.getElementById('successPopup');
           successPopup.style.display = 'block';
           setTimeout(() => { successPopup.style.display = 'none'; }, 2400);
+
+          // อัปเดตสต็อก/ข้อความกระตุ้นเมื่อมีออเดอร์จริง
+          decreaseStockOnOrder();
 
           // Trigger All Purchase Pixels
           if(window.fbq) fbq('track', 'Purchase', {value: 259.00, currency: 'THB'});
