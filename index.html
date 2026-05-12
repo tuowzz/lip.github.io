@@ -638,16 +638,16 @@
     const PRICE = 259;
     const INITIAL_STOCK = 12;
 
-    // CONFIG เฉดสี + เปิด/ปิดขาย
-    const products = [
-      { id: '991', text: '991 - สีชมพู-อมน้ำตาล', enabled: true },
-      { id: '992', text: '992 - CORAL CRUSH',       enabled: true },
-      { id: '993', text: '993 - BERRY BRICK',       enabled: true }, // ขายดี
-      { id: '994', text: '994 - สีชมพูกุหลาบ',     enabled: true },
-      { id: '995', text: '995 - HAZEL',             enabled: true },
-      { id: '996', text: '996 - สีน้ำตาลชมพู',     enabled: true }
-    ];
-
+  // CONFIG เฉดสี + เปิด/ปิดขาย
+const products = [
+  { id: '991', text: '991 - สีชมพู-อมน้ำตาล', enabled: false },
+  { id: '992', text: '992 - CORAL CRUSH',       enabled: true },
+  { id: '993', text: '993 - BERRY BRICK',       enabled: true }, // ขายดี
+  { id: '994', text: '994 - สีชมพูกุหลาบ',     enabled: true },
+  { id: '995', text: '995 - HAZEL',             enabled: false },
+  { id: '996', text: '996 - สีน้ำตาลชมพู',     enabled: true }
+];
+    
     // ฟังก์ชันช่วย
     function randomInt(min, max) {
       return Math.floor(Math.random() * (max - min + 1)) + min;
